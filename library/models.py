@@ -2,8 +2,6 @@ from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from django.db import models
 
-from library_service.settings import AUTH_USER_MODEL
-
 
 class Book(models.Model):
     class CoverType(models.TextChoices):
