@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 from django.conf.global_settings import AUTH_USER_MODEL
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
     "library",
 ]
 
@@ -130,3 +132,12 @@ MAILERS = {
 }
 
 AUTH_USER_MODEL = "library.User"
+
+os.environ.get("STRIPE_SECRET_KEY")
+os.environ.get("STRIPE_PUBLIC_KEY")
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
