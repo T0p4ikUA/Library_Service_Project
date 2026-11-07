@@ -55,10 +55,9 @@ class BorrowingViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         book = serializer.validated_data["book"]
 
-        with (transaction.atomic()):
+        with transaction.atomic():
             from books.models import Book
-            plug = Book.objects.select_for_update(
-            ).get(id=book.id)
+            plug = Book.objects.select_for_update().get(id=book.id)
 
             if plug.inventory < 1:
                 raise ValidationError(
@@ -69,7 +68,16 @@ class BorrowingViewSet(viewsets.ModelViewSet):
             plug.save()
             plug.refresh_from_db()
 
-            serializer.save(user=self.request.user)
+            borrowing = serializer.save(user=self.request.user)
+
+        from borrowings.notifications import send_telegram_message
+        message = (
+            f"<b>New borrowing has been created!</b>\n\n"
+            f"<b>User:</b> {borrowing.user.email}\n"
+            f"<b>Title:</b> {borrowing.book.title}\n"
+            f"<b>Expected return date:</b> {borrowing.expected_return_date}"
+        )
+        send_telegram_message(message)
 
     @action(
         detail=True,
@@ -81,19 +89,22 @@ class BorrowingViewSet(viewsets.ModelViewSet):
 
         if borrowing.actual_return_date is not None:
             return Response(
-                {"error":"This book has been returned"},
+                {"error": "This book has been returned"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        with (transaction.atomic()):
-            borrowing.actual_return_date = timezone.now(
-            ).date()
+        with transaction.atomic():
+            borrowing.actual_return_date = timezone.now().date()
             borrowing.save()
 
-            book = borrowing.book
-            book.inventory = F("inventory") + 1
-            book.save()
-            book.refresh_from_db()
+            from books.models import Book
+
+            locked_book = Book.objects.select_for_update().get(id=borrowing.book.id)
+
+            locked_book.inventory = F("inventory") + 1
+            locked_book.save()
+            locked_book.refresh_from_db()
+
         serializer = self.get_serializer(borrowing)
         return Response(
             serializer.data,
