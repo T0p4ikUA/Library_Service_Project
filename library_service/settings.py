@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "users",
     "borrowings",
     "books",
+    "django_q"
 ]
 
 MIDDLEWARE = [
@@ -152,4 +153,14 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
+}
+
+Q_CLUSTER = {
+    "name": "library_cluster",
+    "workers": 1,
+    "timeout": 90,
+    "retry": 120,
+    "queue_limit": 50,
+    "bulk": 10,
+    "orm": "default",
 }
