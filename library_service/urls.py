@@ -1,3 +1,9 @@
+"""
+Main URL configuration for the library_service project.
+Exposes global API routes for admin, authentication, users, books, and borrowings.
+"""
+
+
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import (

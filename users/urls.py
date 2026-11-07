@@ -1,3 +1,14 @@
+"""
+URL configurations for the users app.
+Exposes endpoints:
+- POST /api/users/register/
+- POST /api/users/token/
+- POST /api/users/token/refresh/
+- POST /api/users/token/verify/
+- GET /PUT /PATCH /api/users/me/
+"""
+
+
 from django.urls import path
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
