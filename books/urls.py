@@ -1,3 +1,11 @@
+"""
+URL configurations for the books app.
+Exposes endpoints:
+- GET /POST /api/books/
+- GET /PUT /PATCH /DELETE /api/books/{id}/
+"""
+
+
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
