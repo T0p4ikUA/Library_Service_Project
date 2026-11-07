@@ -7,7 +7,6 @@ from rest_framework.serializers import ValidationError
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from books.models import Book
 from borrowings.models import Borrowing
 from borrowings.serializers import(
     BorrowingReadSerializer,
@@ -22,6 +21,10 @@ class BorrowingViewSet(viewsets.ModelViewSet):
             "book",
             "user"
         )
+
+        if not self.request.user.is_staff:
+            queryset = queryset.filter(user=self.request.user)
+
         user_id = self.request.query_params.get(
             "user_id"
         )
@@ -29,7 +32,7 @@ class BorrowingViewSet(viewsets.ModelViewSet):
             "is_active"
         )
 
-        if user_id:
+        if user_id and self.request.user.is_staff:
             queryset = queryset.filter(user_id=user_id)
 
         if is_active:
@@ -66,7 +69,7 @@ class BorrowingViewSet(viewsets.ModelViewSet):
             plug.save()
             plug.refresh_from_db()
 
-            serializer.save(uesr=self.request.user)
+            serializer.save(user=self.request.user)
 
     @action(
         detail=True,
