@@ -1,0 +1,51 @@
+import stripe
+from django.conf import settings
+from borrowings.models import Borrowing
+from payments.models import Payment
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+def create_stripe_session(borrowing: Borrowing, request=None) -> Payment:
+    total_days = (
+            borrowing.expected_return_date - borrowing.borrow_date
+    ).days
+    total_amount = borrowing.book.daily_fee * max(total_days, 1)
+
+    if request:
+        success_url = request.build_absolute_url(
+                "/api/payments/success/"
+            ) + "?session_id={CHECKOUT_SESSION_ID}"
+        cancel_url = request.build_absolute_url(
+                "/api/payments/cancel/"
+            )
+    else:
+        success_url = "http://127.0.0.1:8000/api/payments/success/?session_id={CHECKOUT_SESSION_ID}"
+        cancel_url = "http://127.0.0.1:8000/api/payments/cancel/"
+    session = stripe.checkout.Session.create(
+        line_items=[
+            {
+                "price_data": {
+                    "currency": "usd",
+                    "product_data": {
+                        "name": f"Borrowing {borrowing.book.title}",
+                    },
+                    "unit_amount": int(total_amount * 100),
+                },
+                "quantity": 1,
+            }
+        ],
+        mode="payment",
+        success_url=success_url,
+        cancel_url=cancel_url,
+    )
+
+    payment = Payment.objects.create(
+        status=Payment.StatusChoices.PENDING,
+        type=Payment.TypeChoices.PAYMENT,
+        borrowing=borrowing,
+        session_url=session.url,
+        session_id=session.id,
+        money_to_pay=total_amount,
+    )
+
+    return payment
