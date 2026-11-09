@@ -8,7 +8,6 @@ Exposes endpoints:
 - GET /PUT /PATCH /api/users/me/
 """
 
-
 from django.urls import path
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,

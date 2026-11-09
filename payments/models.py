@@ -1,6 +1,7 @@
 from django.db import models
 from borrowings.models import Borrowing
 
+
 class Payment(models.Model):
     class StatusChoices(models.TextChoices):
         PENDING = "Pending"
@@ -16,9 +17,7 @@ class Payment(models.Model):
         default=StatusChoices.PENDING,
     )
     type = models.CharField(
-        max_length=7,
-        choices=TypeChoices.choices,
-        default=TypeChoices.PAYMENT
+        max_length=7, choices=TypeChoices.choices, default=TypeChoices.PAYMENT
     )
     borrowing = models.ForeignKey(
         Borrowing,
@@ -33,6 +32,8 @@ class Payment(models.Model):
     )
 
     def __str__(self):
-        return (f"Payment #{self.id} | "
-                f"Status: {self.status} | "
-                f"Amount: {self.money_to_pay}")
+        return (
+            f"Payment #{self.id} | "
+            f"Status: {self.status} | "
+            f"Amount: {self.money_to_pay}"
+        )
