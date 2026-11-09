@@ -5,4 +5,3 @@ router = DefaultRouter()
 router.register("payments", PaymentViewSet, basename="payment")
 
 urlpatterns = router.urls
-

@@ -5,19 +5,17 @@ from payments.models import Payment
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+
 def create_stripe_session(borrowing: Borrowing, request=None) -> Payment:
-    total_days = (
-            borrowing.expected_return_date - borrowing.borrow_date
-    ).days
+    total_days = (borrowing.expected_return_date - borrowing.borrow_date).days
     total_amount = borrowing.book.daily_fee * max(total_days, 1)
 
     if request:
-        success_url = request.build_absolute_url(
-                "/api/payments/success/"
-            ) + "?session_id={CHECKOUT_SESSION_ID}"
-        cancel_url = request.build_absolute_url(
-                "/api/payments/cancel/"
-            )
+        success_url = (
+            request.build_absolute_url("/api/payments/success/")
+            + "?session_id={CHECKOUT_SESSION_ID}"
+        )
+        cancel_url = request.build_absolute_url("/api/payments/cancel/")
     else:
         success_url = "http://127.0.0.1:8000/api/payments/success/?session_id={CHECKOUT_SESSION_ID}"
         cancel_url = "http://127.0.0.1:8000/api/payments/cancel/"
