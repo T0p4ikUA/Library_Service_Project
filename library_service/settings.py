@@ -167,3 +167,5 @@ Q_CLUSTER = {
     "bulk": 10,
     "orm": "default",
 }
+
+FINE_MULTIPLIER = 2

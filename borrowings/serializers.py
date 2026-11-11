@@ -39,3 +39,15 @@ class BorrowingCreateSerializer(serializers.ModelSerializer):
         create_stripe_session(borrowing, request=request)
 
         return borrowing
+
+    def validate(self, data):
+        borrow_date = data.get("borrow_date")
+        expected_return_date = data.get("expected_return_date")
+
+        if borrow_date and expected_return_date and expected_return_date < borrow_date:
+            raise serializers.ValidationError(
+                {
+                    "expected_return_date": "Expected return date is before borrow date",
+                }
+            )
+        return data
