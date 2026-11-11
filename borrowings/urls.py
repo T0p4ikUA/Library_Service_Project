@@ -6,7 +6,6 @@ Exposes endpoints:
 - POST /api/borrowings/{id}/return/
 """
 
-
 from rest_framework.routers import DefaultRouter
 from borrowings.views import BorrowingViewSet
 

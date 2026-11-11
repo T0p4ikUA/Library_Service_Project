@@ -3,6 +3,7 @@ import requests
 from borrowings.models import Borrowing
 from datetime import date
 
+
 def send_telegram_message(message: str) -> None:
     bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
     chat_id = os.getenv("TELEGRAM_CHAT_ID")
@@ -41,7 +42,8 @@ def check_overdue_borrowings():
                 f"<b>User:</b> {borrowing.user.email}\n"
                 f"<b>Book:</b> {borrowing.book.title}\n"
                 f"<b>Borrow date:</b> {borrowing.borrow_date}\n"
-                f"<b>Expected return date:</b> {borrowing.expected_return_date}"
+                f"<b>Expected return date:</b>"
+                f"{borrowing.expected_return_date}"
             )
             send_telegram_message(message)
     else:

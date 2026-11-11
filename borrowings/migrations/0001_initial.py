@@ -29,7 +29,10 @@ class Migration(migrations.Migration):
                 ),
                 ("borrow_date", models.DateField(auto_now_add=True)),
                 ("expected_return_date", models.DateField()),
-                ("actual_return_date", models.DateField(blank=True, null=True)),
+                ("actual_return_date", models.DateField(
+                    blank=True,
+                    null=True
+                )),
                 (
                     "book",
                     models.ForeignKey(
@@ -51,13 +54,17 @@ class Migration(migrations.Migration):
                 "constraints": [
                     models.CheckConstraint(
                         condition=models.Q(
-                            ("expected_return_date__gte", models.F("borrow_date"))
+                            ("expected_return_date__gte", models.F(
+                                "borrow_date"
+                            ))
                         ),
                         name="expected_return_data_gte_borrow_date",
                     ),
                     models.CheckConstraint(
                         condition=models.Q(
-                            ("actual_return_date__gte", models.F("borrow_date")),
+                            ("actual_return_date__gte", models.F(
+                                "borrow_date"
+                            )),
                             ("actual_return_date__isnull", True),
                             _connector="OR",
                         ),
