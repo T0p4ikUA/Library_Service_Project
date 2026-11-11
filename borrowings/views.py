@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import transaction
 from django.db.models import F
 from django.utils import timezone
@@ -8,7 +9,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from borrowings.models import Borrowing
+from payments.models import Payment
 from borrowings.serializers import BorrowingReadSerializer, BorrowingCreateSerializer
+from payments.services import create_stripe_session
 
 
 class BorrowingViewSet(viewsets.ModelViewSet):
@@ -80,14 +83,28 @@ class BorrowingViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
+        current_date = timezone.now().date()
+
         with transaction.atomic():
-            borrowing.actual_return_date = timezone.now().date()
+            borrowing.actual_return_date = current_date
             borrowing.save()
+
+            if current_date > borrowing.expected_return_date:
+                days_overdue = (current_date - borrowing.expected_return_date).days
+                daily_fee = borrowing.book.daily_fee
+
+                money_to_pay = days_overdue * daily_fee * settings.FINE_MULTIPLIER
+
+                create_stripe_session(
+                    borrowing=borrowing,
+                    request=request,
+                    amount=money_to_pay,
+                    payment_type=Payment.TypeChoices.FINE
+                )
 
             from books.models import Book
 
             locked_book = Book.objects.select_for_update().get(id=borrowing.book.id)
-
             locked_book.inventory = F("inventory") + 1
             locked_book.save()
             locked_book.refresh_from_db()
