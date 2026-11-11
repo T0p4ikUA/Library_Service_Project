@@ -1,5 +1,7 @@
 import stripe
 from django.conf import settings
+from django.urls import reverse
+
 from borrowings.models import Borrowing
 from payments.models import Payment
 
@@ -12,10 +14,10 @@ def create_stripe_session(borrowing: Borrowing, request=None) -> Payment:
 
     if request:
         success_url = (
-            request.build_absolute_url("/api/payments/success/")
+            request.build_absolute_uri(reverse("payment-success"))
             + "?session_id={CHECKOUT_SESSION_ID}"
         )
-        cancel_url = request.build_absolute_url("/api/payments/cancel/")
+        cancel_url = request.build_absolute_uri(reverse("payment-cancel"))
     else:
         success_url = "http://127.0.0.1:8000/api/payments/success/?session_id={CHECKOUT_SESSION_ID}"
         cancel_url = "http://127.0.0.1:8000/api/payments/cancel/"
