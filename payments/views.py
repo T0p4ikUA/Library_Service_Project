@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from payments.models import Payment
 from payments.serializers import PaymentSerializer
 
-stripe.api_key = settings.STRIPE_API_KEY
+stripe.secret_key = settings.STRIPE_SECRET_KEY
 
 
 class PaymentViewSet(viewsets.ReadOnlyModelViewSet):
