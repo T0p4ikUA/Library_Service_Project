@@ -8,10 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from borrowings.models import Borrowing
-from borrowings.serializers import (
-    BorrowingReadSerializer,
-    BorrowingCreateSerializer
-)
+from borrowings.serializers import BorrowingReadSerializer, BorrowingCreateSerializer
 
 
 class BorrowingViewSet(viewsets.ModelViewSet):
@@ -83,14 +80,13 @@ class BorrowingViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        with (transaction.atomic()):
+        with transaction.atomic():
             borrowing.actual_return_date = timezone.now().date()
             borrowing.save()
 
             from books.models import Book
 
-            locked_book = Book.objects.select_for_update(
-            ).get(id=borrowing.book.id)
+            locked_book = Book.objects.select_for_update().get(id=borrowing.book.id)
 
             locked_book.inventory = F("inventory") + 1
             locked_book.save()
