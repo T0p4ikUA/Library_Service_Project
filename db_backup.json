@@ -1,0 +1,502 @@
+[
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$1500000$KbboE75VOYS5AI6zBvE7ry$bHd0qMPOkp/jOLooT7uOCFD9e6NoW2v/ZFQE5anpX5c=",
+        "last_login": "2026-11-07T16:34:29.728Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "t.balenko12008@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-11-07T16:34:08.304Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "p6eoh2qkvubyz9ihftwocz1t0w1nn72w",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQRe_C2pAShgFcuvcMZGBAqoYmpV013t2QdKHb_977hwi0bzXsPa9hZnEVSlx-t0jpldsA_KT2WGRa2rbOUQ5FnrTL-8L5fTvdv4NKvY5aIZNNcfIGNThwYBEAi46FWSu0poBn7Twm9kpbdGAhOgSaVDJFic8XxPw21A:1xPjN7:aVRRCC-YgTfuYw7I9au0m5Y4tDFrr_sARGCn4JiOGX4",
+        "expire_date": "2026-11-21T16:34:29.862Z"
+    }
+},
+{
+    "model": "borrowings.borrowing",
+    "pk": 1,
+    "fields": {
+        "borrow_date": "2026-11-07",
+        "expected_return_date": "2026-11-11",
+        "actual_return_date": null,
+        "book": 1,
+        "user": [
+            "admin"
+        ]
+    }
+},
+{
+    "model": "borrowings.borrowing",
+    "pk": 2,
+    "fields": {
+        "borrow_date": "2026-11-07",
+        "expected_return_date": "2026-11-20",
+        "actual_return_date": null,
+        "book": 2,
+        "user": [
+            "admin"
+        ]
+    }
+},
+{
+    "model": "borrowings.borrowing",
+    "pk": 3,
+    "fields": {
+        "borrow_date": "2026-11-01",
+        "expected_return_date": "2026-11-04",
+        "actual_return_date": "2026-11-11",
+        "book": 4,
+        "user": [
+            "admin"
+        ]
+    }
+},
+{
+    "model": "borrowings.borrowing",
+    "pk": 4,
+    "fields": {
+        "borrow_date": "2026-11-07",
+        "expected_return_date": "2026-11-21",
+        "actual_return_date": null,
+        "book": 4,
+        "user": [
+            "admin"
+        ]
+    }
+},
+{
+    "model": "borrowings.borrowing",
+    "pk": 5,
+    "fields": {
+        "borrow_date": "2026-11-07",
+        "expected_return_date": "2026-11-21",
+        "actual_return_date": null,
+        "book": 5,
+        "user": [
+            "admin"
+        ]
+    }
+},
+{
+    "model": "borrowings.borrowing",
+    "pk": 6,
+    "fields": {
+        "borrow_date": "2026-11-07",
+        "expected_return_date": "2026-11-25",
+        "actual_return_date": null,
+        "book": 6,
+        "user": [
+            "admin"
+        ]
+    }
+},
+{
+    "model": "borrowings.borrowing",
+    "pk": 7,
+    "fields": {
+        "borrow_date": "2026-11-07",
+        "expected_return_date": "2026-11-27",
+        "actual_return_date": null,
+        "book": 7,
+        "user": [
+            "admin"
+        ]
+    }
+},
+{
+    "model": "books.book",
+    "pk": 1,
+    "fields": {
+        "title": "Harry Potter and the Philosopher's Stone",
+        "author": "Joanne K. Rowling",
+        "cover": "SOFT",
+        "inventory": 99,
+        "daily_fee": "0.50"
+    }
+},
+{
+    "model": "books.book",
+    "pk": 2,
+    "fields": {
+        "title": "Harry Potter and the Chamber of Secrets",
+        "author": "Joanne K. Rowling",
+        "cover": "SOFT",
+        "inventory": 94,
+        "daily_fee": "0.50"
+    }
+},
+{
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+        "title": "Harry Potter and the Chamber of Secrets",
+        "author": "Joanne K. Rowling",
+        "cover": "SOFT",
+        "inventory": 95,
+        "daily_fee": "0.50"
+    }
+},
+{
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+        "title": "Harry Potter and the Prisoner of Azkaban",
+        "author": "Joanne K. Rowling",
+        "cover": "SOFT",
+        "inventory": 154,
+        "daily_fee": "0.50"
+    }
+},
+{
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+        "title": "Harry Potter and the Goblet of Fire",
+        "author": "Joanne K. Rowling",
+        "cover": "SOFT",
+        "inventory": 134,
+        "daily_fee": "0.50"
+    }
+},
+{
+    "model": "books.book",
+    "pk": 6,
+    "fields": {
+        "title": "Harry Potter and the Orden of Phoenix",
+        "author": "Joanne K. Rowling",
+        "cover": "SOFT",
+        "inventory": 124,
+        "daily_fee": "0.80"
+    }
+},
+{
+    "model": "books.book",
+    "pk": 7,
+    "fields": {
+        "title": "Harry Potter and the Half-blood Prince",
+        "author": "Joanne K. Rowling",
+        "cover": "SOFT",
+        "inventory": 174,
+        "daily_fee": "0.70"
+    }
+},
+{
+    "model": "payments.payment",
+    "pk": 1,
+    "fields": {
+        "status": "Pending",
+        "type": "Payment",
+        "borrowing": 1,
+        "session_url": "https://checkout.stripe.com/c/pay/cs_test_a1C8eHpr93TP6fEnFozcEXRHMfYKbodGwYFvDwOry0py2xZ6xlyVCNjQjn#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5acWB2cVowNFBTd0RiQ1EwRmJ0VlI9c3B1N0ZnMzRsbVBpUkQ0VndWaFA9QTE1TFxJQlVjTTEwNXFBREByS2cwfzU3bXVXc1x2RkpqPHJkN3IzMjUzSHZNU1dwUzRJPDU1NG5JdlFQdkQnKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJ3gl",
+        "session_id": "cs_test_a1C8eHpr93TP6fEnFozcEXRHMfYKbodGwYFvDwOry0py2xZ6xlyVCNjQjn",
+        "money_to_pay": "2.00"
+    }
+},
+{
+    "model": "payments.payment",
+    "pk": 2,
+    "fields": {
+        "status": "Pending",
+        "type": "Payment",
+        "borrowing": 1,
+        "session_url": "https://checkout.stripe.com/c/pay/cs_test_a1I9Kl2j3TnwX7FeIIAYhZ1jRDPFpQKTC4IAyK2PAFW3TeOJNF4XU7q6v1#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5acWB2cVowNFBTd0RiQ1EwRmJ0VlI9c3B1N0ZnMzRsbVBpUkQ0VndWaFA9QTE1TFxJQlVjTTEwNXFBREByS2cwfzU3bXVXc1x2RkpqPHJkN3IzMjUzSHZNU1dwUzRJPDU1NG5JdlFQdkQnKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJ3gl",
+        "session_id": "cs_test_a1I9Kl2j3TnwX7FeIIAYhZ1jRDPFpQKTC4IAyK2PAFW3TeOJNF4XU7q6v1",
+        "money_to_pay": "2.00"
+    }
+},
+{
+    "model": "payments.payment",
+    "pk": 3,
+    "fields": {
+        "status": "Pending",
+        "type": "Payment",
+        "borrowing": 1,
+        "session_url": "https://checkout.stripe.com/c/pay/cs_test_a1I9Kl2j3TnwX7FeIIAYhZ1jRDPFpQKTC4IAyK2PAFW3TeOJNF4XU7q6v1#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5acWB2cVowNFBTd0RiQ1EwRmJ0VlI9c3B1N0ZnMzRsbVBpUkQ0VndWaFA9QTE1TFxJQlVjTTEwNXFBREByS2cwfzU3bXVXc1x2RkpqPHJkN3IzMjUzSHZNU1dwUzRJPDU1NG5JdlFQdkQnKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJ3gl",
+        "session_id": "cs_test_a1I9Kl2j3TnwX7FeIIAYhZ1jRDPFpQKTC4IAyK2PAFW3TeOJNF4XU7q6v1",
+        "money_to_pay": "2.00"
+    }
+},
+{
+    "model": "payments.payment",
+    "pk": 4,
+    "fields": {
+        "status": "Paid",
+        "type": "Fine",
+        "borrowing": 5,
+        "session_url": "https://checkout.stripe.com/c/pay/cs_test_a1I9Kl2j3TnwX7FeIIAYhZ1jRDPFpQKTC4IAyK2PAFW3TeOJNF4XU7q6v1#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5acWB2cVowNFBTd0RiQ1EwRmJ0VlI9c3B1N0ZnMzRsbVBpUkQ0VndWaFA9QTE1TFxJQlVjTTEwNXFBREByS2cwfzU3bXVXc1x2RkpqPHJkN3IzMjUzSHZNU1dwUzRJPDU1NG5JdlFQdkQnKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJ3gl",
+        "session_id": "cs_test_a1I9Kl2j3TnwX7FeIIAYhZ1jRDPFpQKTC4IAyK2PAFW3TeOJNF4XU7q6v1",
+        "money_to_pay": "3.00"
+    }
+},
+{
+    "model": "payments.payment",
+    "pk": 5,
+    "fields": {
+        "status": "Pending",
+        "type": "Fine",
+        "borrowing": 3,
+        "session_url": "",
+        "session_id": "",
+        "money_to_pay": "5.00"
+    }
+},
+{
+    "model": "payments.payment",
+    "pk": 6,
+    "fields": {
+        "status": "Pending",
+        "type": "Fine",
+        "borrowing": 3,
+        "session_url": "",
+        "session_id": "",
+        "money_to_pay": "7.00"
+    }
+},
+{
+    "model": "payments.payment",
+    "pk": 7,
+    "fields": {
+        "status": "Pending",
+        "type": "Fine",
+        "borrowing": 3,
+        "session_url": "https://checkout.stripe.com/c/pay/cs_test_a0IPNWQtM3aBuJHpnf45Grhd9iczL1tK9g4kxrNctez714IxyigpRYGKJn#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5acWB2cVowNFBTd0RiQ1EwRmJ0VlI9c3B1N0ZnMzRsbVBpUkQ0VndWaFA9QTE1TFxJQlVjTTEwNXFBREByS2cwfzU3bXVXc1x2RkpqPHJkN3IzMjUzSHZNU1dwUzRJPDU1NG5JdlFQdkQnKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJ3gl",
+        "session_id": "cs_test_a0IPNWQtM3aBuJHpnf45Grhd9iczL1tK9g4kxrNctez714IxyigpRYGKJn",
+        "money_to_pay": "7.00"
+    }
+},
+{
+    "model": "payments.payment",
+    "pk": 8,
+    "fields": {
+        "status": "Pending",
+        "type": "Fine",
+        "borrowing": 3,
+        "session_url": "https://checkout.stripe.com/c/pay/cs_test_a07ulLWeFymmwJAQy3nMhPtlMjK5PZ3uWOlxHCOxJyBiZgqWXMSC8Tgljp#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5acWB2cVowNFBTd0RiQ1EwRmJ0VlI9c3B1N0ZnMzRsbVBpUkQ0VndWaFA9QTE1TFxJQlVjTTEwNXFBREByS2cwfzU3bXVXc1x2RkpqPHJkN3IzMjUzSHZNU1dwUzRJPDU1NG5JdlFQdkQnKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJ3gl",
+        "session_id": "cs_test_a07ulLWeFymmwJAQy3nMhPtlMjK5PZ3uWOlxHCOxJyBiZgqWXMSC8Tgljp",
+        "money_to_pay": "7.00"
+    }
+},
+{
+    "model": "payments.payment",
+    "pk": 9,
+    "fields": {
+        "status": "Pending",
+        "type": "Fine",
+        "borrowing": 3,
+        "session_url": "https://checkout.stripe.com/c/pay/cs_test_a0kPuiwt0UkuKLtPDrfogr6wxmNQOfuppx3E55WxJ5UUPn8KSVo18AsJYH#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicyc%2FNSknZHVsTmB8Jz8ndW5acWB2cVowNFBTd0RiQ1EwRmJ0VlI9c3B1N0ZnMzRsbVBpUkQ0VndWaFA9QTE1TFxJQlVjTTEwNXFBREByS2cwfzU3bXVXc1x2RkpqPHJkN3IzMjUzSHZNU1dwUzRJPDU1NG5JdlFQdkQnKSdjd2poVmB3c2B3Jz9xd3BgKSdnZGZuYndqcGthRmppancnPycmY2NjY2NjJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJ3gl",
+        "session_id": "cs_test_a0kPuiwt0UkuKLtPDrfogr6wxmNQOfuppx3E55WxJ5UUPn8KSVo18AsJYH",
+        "money_to_pay": "7.00"
+    }
+},
+{
+    "model": "django_q.task",
+    "pk": "09bd27a7e195450d903dc4f6ca2c8967",
+    "fields": {
+        "name": "don-eighteen-november-arizona",
+        "func": "borrowings.notifications.check_overdue_borrowings",
+        "hook": null,
+        "args": "gAUpLg==",
+        "kwargs": "gAV9lC4=",
+        "result": null,
+        "group": "Daily Overdue Check",
+        "cluster": "library_cluster",
+        "started": "2026-11-14T16:11:04.028Z",
+        "stopped": "2026-11-14T16:11:04.444Z",
+        "success": true,
+        "attempt_count": 1
+    }
+},
+{
+    "model": "django_q.task",
+    "pk": "2c0830bd03e54f4f87b5a966e19b9a48",
+    "fields": {
+        "name": "oven-undress-yellow-oscar",
+        "func": "borrowings.notifications.check_overdue_borrowings",
+        "hook": null,
+        "args": "gAUpLg==",
+        "kwargs": "gAV9lC4=",
+        "result": null,
+        "group": "Daily Overdue Check",
+        "cluster": "library_cluster",
+        "started": "2026-11-14T16:10:33.840Z",
+        "stopped": "2026-11-14T16:10:34.291Z",
+        "success": true,
+        "attempt_count": 1
+    }
+},
+{
+    "model": "django_q.task",
+    "pk": "2d7459d4e6ef44a2b161f325220aa07c",
+    "fields": {
+        "name": "steak-violet-apart-white",
+        "func": "borrowings.notifications.check_overdue_borrowings",
+        "hook": null,
+        "args": "gAUpLg==",
+        "kwargs": "gAV9lC4=",
+        "result": null,
+        "group": "Daily Overdue Check",
+        "cluster": "library_cluster",
+        "started": "2026-11-14T16:08:33.129Z",
+        "stopped": "2026-11-14T16:08:33.744Z",
+        "success": true,
+        "attempt_count": 1
+    }
+},
+{
+    "model": "django_q.task",
+    "pk": "46936db2e3f14ea58a6e179b42243a05",
+    "fields": {
+        "name": "artist-wolfram-item-happy",
+        "func": "borrowings.notifications.check_overdue_borrowings",
+        "hook": null,
+        "args": "gAUpLg==",
+        "kwargs": "gAV9lC4=",
+        "result": null,
+        "group": "Daily Overdue Check",
+        "cluster": "library_cluster",
+        "started": "2026-11-14T16:10:03.658Z",
+        "stopped": "2026-11-14T16:10:04.168Z",
+        "success": true,
+        "attempt_count": 1
+    }
+},
+{
+    "model": "django_q.task",
+    "pk": "65ac171bdefa43e09442fe974ecb780f",
+    "fields": {
+        "name": "sierra-may-salami-west",
+        "func": "borrowings.notifications.check_overdue_borrowings",
+        "hook": null,
+        "args": "gAUpLg==",
+        "kwargs": "gAV9lC4=",
+        "result": null,
+        "group": "Daily Overdue Check",
+        "cluster": "library_cluster",
+        "started": "2026-11-07T19:38:03.005Z",
+        "stopped": "2026-11-07T19:38:03.574Z",
+        "success": true,
+        "attempt_count": 1
+    }
+},
+{
+    "model": "django_q.task",
+    "pk": "9e62c5d734a14d45a11f062b9b448304",
+    "fields": {
+        "name": "video-nitrogen-moon-hamper",
+        "func": "borrowings.notifications.check_overdue_borrowings",
+        "hook": null,
+        "args": "gAUpLg==",
+        "kwargs": "gAV9lC4=",
+        "result": null,
+        "group": "Daily Overdue Check",
+        "cluster": "library_cluster",
+        "started": "2026-11-14T16:09:03.314Z",
+        "stopped": "2026-11-14T16:09:03.808Z",
+        "success": true,
+        "attempt_count": 1
+    }
+},
+{
+    "model": "django_q.task",
+    "pk": "f42cae8423c14f0caa3ad2f258f19def",
+    "fields": {
+        "name": "west-october-pizza-tennessee",
+        "func": "borrowings.notifications.check_overdue_borrowings",
+        "hook": null,
+        "args": "gAUpLg==",
+        "kwargs": "gAV9lC4=",
+        "result": null,
+        "group": "Daily Overdue Check",
+        "cluster": "library_cluster",
+        "started": "2026-11-14T16:09:33.480Z",
+        "stopped": "2026-11-14T16:09:33.972Z",
+        "success": true,
+        "attempt_count": 1
+    }
+},
+{
+    "model": "django_q.schedule",
+    "pk": 1,
+    "fields": {
+        "name": "Daily Overdue Check",
+        "func": "borrowings.notifications.check_overdue_borrowings",
+        "hook": null,
+        "args": "",
+        "kwargs": "",
+        "schedule_type": "D",
+        "minutes": null,
+        "repeats": -1,
+        "next_run": "2026-11-14T19:36:31Z",
+        "cron": null,
+        "task": "09bd27a7e195450d903dc4f6ca2c8967",
+        "cluster": null,
+        "intended_date_kwarg": null
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2026-11-07T19:37:37.142Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "django_q",
+            "schedule"
+        ],
+        "object_id": "1",
+        "object_repr": "borrowings.notifications.check_overdue_borrowings",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2026-11-08T17:12:33.483Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "payments",
+            "payment"
+        ],
+        "object_id": "3",
+        "object_repr": "Payment #3 | Status: Pending | Amount: 2",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2026-11-08T17:13:02.176Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "payments",
+            "payment"
+        ],
+        "object_id": "4",
+        "object_repr": "Payment #4 | Status: Paid | Amount: 3",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+}
+]
