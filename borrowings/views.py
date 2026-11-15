@@ -73,6 +73,7 @@ class BorrowingViewSet(viewsets.ModelViewSet):
         detail=True,
         methods=["post"],
         url_path="return",
+        name="return",
     )
     def return_book(self, request, pk):
         borrowing = self.get_object()
@@ -99,7 +100,7 @@ class BorrowingViewSet(viewsets.ModelViewSet):
                     borrowing=borrowing,
                     request=request,
                     amount=money_to_pay,
-                    payment_type=Payment.TypeChoices.FINE
+                    payment_type=Payment.TypeChoices.FINE,
                 )
 
             from books.models import Book

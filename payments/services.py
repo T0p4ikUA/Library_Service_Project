@@ -12,7 +12,7 @@ def create_stripe_session(
     borrowing: Borrowing,
     request=None,
     amount=None,
-    payment_type=Payment.TypeChoices.PAYMENT
+    payment_type=Payment.TypeChoices.PAYMENT,
 ) -> Payment:
     if amount is not None:
         total_amount = amount
@@ -24,8 +24,8 @@ def create_stripe_session(
 
     if request:
         success_url = (
-                request.build_absolute_uri(reverse("payments:success"))
-                + "?session_id={CHECKOUT_SESSION_ID}"
+            request.build_absolute_uri(reverse("payments:success"))
+            + "?session_id={CHECKOUT_SESSION_ID}"
         )
         cancel_url = request.build_absolute_uri(reverse("payments:cancel"))
     else:
