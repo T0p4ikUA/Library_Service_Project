@@ -67,3 +67,28 @@ class AdminBookApiTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         exists = Book.objects.filter(title=payload["title"]).exists()
         self.assertTrue(exists)
+
+    def test_negative_daily_fee_cannot_be_created(self):
+        payload = {
+            "title": "Negative Price Book",
+            "author": "Author",
+            "cover": "HARD",
+            "inventory": 5,
+            "daily_fee": "-1.50",
+        }
+        response = self.client.post(self.book_url, payload)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertIn("daily_fee", response.data)
+
+    def test_negative_daily_feet_validation(self):
+        from django.core.exceptions import ValidationError
+
+        book = Book(
+            title="Bad Book",
+            author="Author",
+            cover=Book.CoverType.HARD,
+            inventory=5,
+            daily_fee=Decimal("-0.50"),
+        )
+        with self.assertRaises(ValidationError):
+            book.full_clean()

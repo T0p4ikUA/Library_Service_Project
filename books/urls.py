@@ -14,7 +14,7 @@ from books.views import (
 
 router = DefaultRouter()
 
-router.register("books", BookViewSet, basename="book")
+router.register("", BookViewSet, basename="book")
 
 app_name = "books"
 

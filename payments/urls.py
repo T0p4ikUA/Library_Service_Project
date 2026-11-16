@@ -8,7 +8,7 @@ from payments.views import (
 )
 
 router = DefaultRouter()
-router.register(r"payments", PaymentViewSet, basename="payment")
+router.register("", PaymentViewSet, basename="payment")
 
 urlpatterns = [
     path("payments/success/", payment_success_view, name="success"),

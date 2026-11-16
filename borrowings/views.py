@@ -2,7 +2,7 @@ from django.conf import settings
 from django.db import transaction
 from django.db.models import F
 from django.utils import timezone
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, mixins
 from rest_framework.decorators import action
 from rest_framework.serializers import ValidationError
 from rest_framework.permissions import IsAuthenticated
@@ -14,7 +14,12 @@ from borrowings.serializers import BorrowingReadSerializer, BorrowingCreateSeria
 from payments.services import create_stripe_session
 
 
-class BorrowingViewSet(viewsets.ModelViewSet):
+class BorrowingViewSet(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet,
+):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
